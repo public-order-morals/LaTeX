@@ -27,7 +27,9 @@
   tabsize=2
 }
 
+
 \usepackage{tabularx}
+
 
 \makeatletter
 \AtBeginDocument{
@@ -37,7 +39,7 @@
 }
 \makeatother
 
-\title{{\Huge 要求仕様書}\\第2版}
+\title{{\Huge 要求仕様書}\\第3版}
 \author{24 高橋祥吾\\26 田桑大輔\\29 田中稀尋\\30 谷川僚}
 \date{}
 
@@ -45,11 +47,19 @@
 %%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+\setcounter{page}{0}
+
 \maketitle
+\thispagestyle{empty}
+
 \clearpage
+
+\setcounter{page}{0}
+\thispagestyle{empty}
 
 \tableofcontents
 \clearpage
+
 
 %%%%%%%%%%%%
 \section{ソフトウェアの概要}
@@ -147,7 +157,7 @@
   \begin{tabular}{@{}l|l|l|l|l@{}}
     項目     & 概要                               & 登録の可不可 & 要求する入力形式     & 変更の可不可 \\
     \hline\hline
-    資産番号 & 資産ごとの固有のID                 & impossible   & システムで生成       & impossible   \\
+    資産番号 & 資産ごとの固有のID                 & admin   & システムで生成       & admin   \\
     \hline
     資産名   & 登録する際の名称. 型番など.        & possible     & 文字列               & admin        \\
     \hline
@@ -161,7 +171,7 @@
     \hline
     管理者   & 資産の管理者または責任者           & possible     & 選択形式または文字列 & admin        \\
     \hline
-    個数     & 資産の個数                         & possible     & 整数値               & admin        \\
+    個数     & 資産の個数                         & possible     & 整数値               & possible        \\
     \hline
     画像     & 資産の写真またはイメージ図         & possible     & 画像のアップロード   & admin        \\
     \hline\hline
