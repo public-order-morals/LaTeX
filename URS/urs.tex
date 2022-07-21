@@ -155,29 +155,29 @@
   \label{tb:データの形式}
   \centering
   \begin{tabular}{@{}l|l|l|l|l@{}}
-    項目     & 概要                               & 登録の可不可 & 要求する入力形式     & 変更の可不可 \\
+    項目     & 概要                               & 要求する入力形式 & 登録の可不可     & 変更の可不可 \\
     \hline\hline
-    資産番号 & 資産ごとの固有のID                 & admin   & システムで生成       & admin   \\
+    資産番号 & 資産ごとの固有のID                 & システムで生成   & admin       & admin   \\
     \hline
-    資産名   & 登録する際の名称. 型番など.        & possible     & 文字列               & admin        \\
+    資産名   & 登録する際の名称. 型番など.        & 文字列     & possible               & admin        \\
     \hline
-    形式     & 資産の分類. PCやプリンターなど     & possible     & 選択形式または文字列 & admin        \\
+    形式     & 資産の分類. PCやプリンターなど     & 選択形式または文字列     & possible & admin        \\
     \hline
-    所属     & 資産が利用, 所在する所属. 学科など & possible     & 選択形式             & admin        \\
+    所属     & 資産が利用, 所在する所属. 学科など & 選択形式     & possible             & admin        \\
     \hline
-    場所     & 資産の所在. 部屋番号を想定         & possible     & 選択形式             & possible     \\
+    場所     & 資産の所在. 部屋番号を想定         & 選択形式     & possible             & possible     \\
     \hline
-    担当     & 資産の所有者および使用者           & possible     & 文字列               & possible     \\
+    担当     & 資産の所有者および使用者           & 文字列     & possible               & possible     \\
     \hline
-    管理者   & 資産の管理者または責任者           & possible     & 選択形式または文字列 & admin        \\
+    管理者   & 資産の管理者または責任者           & 選択形式または文字列     & possible & admin        \\
     \hline
-    個数     & 資産の個数                         & possible     & 整数値               & possible        \\
+    個数     & 資産の個数                         & 整数値     & possible               & possible        \\
     \hline
-    画像     & 資産の写真またはイメージ図         & possible     & 画像のアップロード   & admin        \\
+    画像     & 資産の写真またはイメージ図         & 画像のアップロード     & possible   & admin        \\
     \hline\hline
-    取得日時 & 資産情報を登録した日時             & impossible   & システムで生成       & impossible   \\
+    取得日時 & 資産情報を登録した日時             & システムで生成   & impossible       & impossible   \\
     \hline
-    編集日時 & 資産情報に変更を加えた最新の日時   & impossible   & システムで生成       & impossible
+    編集日時 & 資産情報に変更を加えた最新の日時   & システムで生成   & impossible       & impossible
   \end{tabular}
 \end{table}\par
 変更の可不可について, 変更可能性が低いが修正する可能性があるものを, 管理者権限によってのみ変更可能であるとして, adminと表記した.
@@ -300,7 +300,9 @@
     2022/06/09 & 全体の表現の変更・追加                         & 高橋・田中 \\
     \hline
     2022/07/05 & \ref{sec:各機能の詳細・システムの詳細}節の編集 & 高橋・田中 \\
-    %\hline
+    \hline
+    2022/07/21 & & 高橋・田中 \\
+    % \hline
   \end{tabularx}
 \end{table}
 
