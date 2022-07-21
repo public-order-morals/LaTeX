@@ -184,15 +184,69 @@
 
 %%%%%
 \clearpage
+\subsection{状態遷移図}
+\label{subsec:状態遷移図}
+本ソフトウェアを実行した際の状態遷移図を次に示す. 図\ref{fig:一般ユーザの状態遷移図}を一般ユーザの状態遷移図, 図\ref{fig:adminの状態遷移図}を管理者ユーザの状態遷移図とする. \par
+緑(濃い)色の四角は画面を表しており, 楕円はボタン, 黄(薄い)色は機能を示している.
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{follower_transition-diagram.png}
+  \caption{\label{fig:一般ユーザの状態遷移図}一般ユーザの状態遷移図}
+\end{figure}\par
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_transition-diagram.png}
+  \caption{\label{fig:adminの状態遷移図}adminの状態遷移図}
+\end{figure}\par
+
+%%%%%
+\clearpage
+\subsubsection{ホーム画面}
+\label{subsubsec:ホーム画面}
+図\ref{fig:一般ユーザの状態遷移図}, 図\ref{fig:adminの状態遷移図}内にあるホーム画面のイメージ図を次に示す. 図\ref{fig:ホーム画面のイメージ図}を一般ユーザのものとし, 図\ref{fig:adminのホーム画面のイメージ図}を管理者ユーザのものとする.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{home.png}
+  }
+  \caption{\label{fig:ホーム画面のイメージ図}ホーム画面のイメージ図}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_home.PNG}
+  }
+  \caption{\label{fig:adminのホーム画面のイメージ図}adminのホーム画面のイメージ図}
+\end{figure}
+
+
+%%%%%
+\clearpage
+\subsubsection{ユーザ登録・ログイン機能}
+\label{subsec:ユーザ登録・ログイン機能}
+メールアドレス$^*1$(サレジオドメイン)に基づくIDと任意に設定するパスワードによってユーザ情報を登録する. また, これらによりログインする機能. 登録した情報を使用して個人を識別する. 資産情報を編集したときにログを残すために実装する. ログイン画面のイメージ図を図\ref{fig:ログイン画面のイメージ図}に示す. 
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{login.png}
+  }
+  \caption{\label{fig:ログイン画面のイメージ図}ログイン画面のイメージ図}
+\end{figure}
+
+%%%%%
+\clearpage
 \subsection{一般ユーザ(follower)}
 \label{subsec:一般ユーザ(follower)}
-一般ユーザは資産番号以外のデータを登録ができ, 資産の場所, 担当, 個数を変更することができる. adminの管理下にある. 
+一般ユーザは資産番号以外のデータを登録ができ, 資産の場所, 担当, 個数を変更することができる. adminの管理下にある. admin以外が一般ユーザを新規登録することはできない.
 
 %%%%%
 \subsubsection{登録機能}
 \label{subsec:登録機能}
 新しい資産を登録する機能. 所属, 場所, 担当, 管理者, 資産名, 形式, 個数, 画像の8項目の入力を要求する. \par
-登録画面のイメージ図を図\ref{fig:登録画面のイメージ図}に示す. 各項目について, 要求する入力形式に基づいて登録できるようになっている.
+登録画面のイメージ図を図\ref{fig:登録画面のイメージ図}に示す. 各項目について, 要求する入力形式に基づいて登録できるようになっている. \par
+ログインしているユーザの情報に基づいて, 所属, 担当はシステムによって先行入力する機能を検討中.
 \begin{figure}[h]
   \centering
   \fbox{
@@ -200,12 +254,6 @@
   }
   \caption{\label{fig:登録画面のイメージ図}登録画面のイメージ図}
 \end{figure}\par
-ログインしているユーザの情報に基づいて, 所属, 担当はシステムによって先行入力する機能を検討中.
-
-%%%%%
-\subsubsection{削除機能}
-\label{subsec:削除機能}
-資産情報を削除する機能. 削除を実行した場合, 該当の資産情報はデータから完全に削除され, サルベージされない. ただし, 削除したログは残す. ログに記載する情報は削除日時, 削除したユーザ, 削除した資産の資産番号の3つを予定している. また, 削除を実行する前にユーザに対して確認をする.
 
 %%%%%
 \clearpage
@@ -235,19 +283,6 @@
 
 %%%%%
 \clearpage
-\subsubsection{ユーザ登録・ログイン機能}
-\label{subsec:ユーザ登録・ログイン機能}
-メールアドレス$^*1$(サレジオドメイン)に基づくIDと任意に設定するパスワードによってユーザ情報を登録する. また, これらによりログインする機能. 登録した情報を使用して個人を識別する. 資産情報を編集したときにログを残すために実装する. ログイン画面のイメージ図を図\ref{fig:ログイン画面のイメージ図}に示す. 
-\begin{figure}[h]
-  \centering
-  \fbox{
-    \includegraphics[keepaspectratio, width=0.8\linewidth]{login.png}
-  }
-  \caption{\label{fig:ログイン画面のイメージ図}ログイン画面のイメージ図}
-\end{figure}
-
-%%%%%
-\clearpage
 \subsubsection{ユーザ情報編集機能}
 \label{subsec:ユーザ情報編集機能}
 ユーザ情報(ID, パスワード, プロフィール画像, 表示名, 所属)を編集する機能. ユーザ情報編集画面のイメージ図を図\ref{fig:ユーザ情報編集画面のイメージ図}に示す. \par
@@ -264,29 +299,113 @@
 \clearpage
 \subsection{管理者ユーザ(admin)}
 \label{subsec:管理者ユーザ(admin)}
-管理者ユーザの説明
+管理者ユーザは資産番号の登録と変更, 一般ユーザが変更できない資産情報の変更ができる.
 
 %%%%%
-\clearpage
-\subsection{状態遷移図}
-\label{subsec:状態遷移図}
-本ソフトウェアを実行した際の状態遷移図を次に示す. 黄色の枠は機能, 黒の実線の枠はボタンとしての存在, 灰色はサブ機能を表している. 
-\begin{figure}[h]
-  \centering
-  \includegraphics[keepaspectratio, height=0.4\linewidth]{transition-diagram.jpg}
-  \caption{\label{fig:状態遷移図}状態遷移図}
-\end{figure}\par
-図\ref{fig:状態遷移図}内にあるホーム画面のイメージ図を次に示す.
+\subsubsection{登録機能}
+\label{subsubsec:登録機能}
+一般ユーザでは登録ができなかった資産番号を登録することができる. 現時点では1つ1つ入力を行う必要がある. \par
+資産番号の入力方法については検討中. 
 \begin{figure}[h]
   \centering
   \fbox{
-    \includegraphics[keepaspectratio, width=0.8\linewidth]{home.png}
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_register.png}
   }
-  \caption{\label{fig:ホーム画面のイメージ図}ホーム画面のイメージ図}
+  \caption{\label{fig:adminの登録画面のイメージ図}adminの登録画面のイメージ図}
+\end{figure}\par
+
+%%%%%
+\clearpage
+\subsubsection{削除機能}
+\label{subsec:削除機能}
+資産情報を削除する機能. 削除を実行した場合, 該当の資産情報はデータから完全に削除され, サルベージされない. ただし, 削除したログは残す. ログに記載する情報は削除日時, 削除したユーザ, 削除した資産の資産番号の3つを予定している. また, 削除を実行する前にユーザに対して確認をする.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_delete.png}
+  }
+  \caption{\label{fig:削除画面のイメージ図}削除画面のイメージ図}
+\end{figure}\par
+
+%%%%%
+\clearpage
+\subsubsection{変更機能}
+\label{subsubsec:変更機能}
+一般ユーザでは変更ができなかった資産番号, 資産名, 形式, 所属, 管理者, 画像の計6項目を変更することができる. \par
+各項目について, 要求する入力形式に基づいて変更できるようにする. また, 変更を実行する前に確認をする. 
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_change.png}
+  }
+  \caption{\label{fig:adminの変更画面のイメージ図}adminの変更画面のイメージ図}
 \end{figure}
 
+%%%%%
+\clearpage
+\subsubsection{検索機能}
+\label{subsubsec:検索機能}
+資産番号, 製品名, 管理者, 所有者, 所在別, 購入日でそれぞれ検索またはソートを行う機能. 一般ユーザと画面の構成, 機能は同じである.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{search.png}
+  }
+  \caption{\label{fig:adminの検索画面のイメージ図}adminの検索画面のイメージ図}
+\end{figure}
 
+%%%%%
+\clearpage
+\subsubsection{ユーザ情報編集機能}
+\label{subsubsec:ユーザ情報編集機能}
+ユーザ情報(ID, パスワード, プロフィール画像, 表示名, 所属)を編集する機能. ユーザ情報編集画面のイメージ図を図\ref{fig:adminのユーザ情報編集画面のイメージ図}に示す. \par
+一般ユーザと画面の構成, 機能は同じである.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{change-user-info.png}
+  }
+  \caption{\label{fig:adminのユーザ情報編集画面のイメージ図}adminのユーザ情報編集画面のイメージ図}
+\end{figure}
 
+%%%%%
+\clearpage
+\subsubsection{ユーザ一覧検索機能}
+\label{subsubsec:ユーザ一覧検索機能}
+登録済みの一般ユーザがプロフィールの画像とともに表示され, ユーザの検索ができる. ここから一般ユーザの情報を編集と一般ユーザの新規登録が可能になっている.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_user-search.PNG}
+  }
+  \caption{\label{fig:adminのユーザ一覧検索機能のイメージ図}adminのユーザ一覧検索機能のイメージ図}
+\end{figure}
+
+%%%%%
+\clearpage
+\subsubsection{一般ユーザ情報編集機能}
+\label{subsubsec:一般ユーザ情報編集機能}
+一般ユーザ情報の変更と削除が行える. 変更ができるものは現時点ではID(サレジオドメイン), 名前, 所属となっている. 削除は右下にある削除ボタンを選択すると行える. また, 削除を実行する前に確認をする. 
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_user-change.PNG}
+  }
+  \caption{\label{fig:adminの一般ユーザ情報編集機能のイメージ図}adminの一般ユーザ情報編集機能のイメージ図}
+\end{figure}
+
+%%%%%
+\clearpage
+\subsubsection{一般ユーザ新規作成機能}
+\label{subsubsec:一般ユーザ新規作成機能}
+一般ユーザの新規登録が行える. 登録に必要なものはID(サレジオドメイン), 名前, 所属となっている. 管理者ユーザしか登録できない理由は無断で新規登録をされ, 混乱を招かないためである.
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_user-register.PNG}
+  }
+  \caption{\label{fig:adminの一般ユーザ新規作成機能のイメージ図}adminの一般ユーザ新規作成機能のイメージ図}
+\end{figure}
 
 %%%%%%%%%%
 %\newpage
@@ -296,7 +415,7 @@
 %\item[メールアドレス] @以左のユーザ名(メールアカウント)と, @以右のドメインによって構成される.  例 {\tt test@example.com}
 %\end{enumerate}
 
-
+%%%%%
 \clearpage
 {\Large\bfseries \ 改変履歴}
 \begin{table}[htbp]
@@ -312,7 +431,7 @@
     \hline
     2022/07/05 & \ref{sec:各機能の詳細・システムの詳細}節の編集 & 高橋・田中 \\
     \hline
-    2022/07/21 & & 高橋・田中 \\
+    2022/07/21 & \ref{sec:各機能の詳細・システムの詳細}節の編集 & 高橋・田中 \\
     % \hline
   \end{tabularx}
 \end{table}
