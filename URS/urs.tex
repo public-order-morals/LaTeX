@@ -215,14 +215,13 @@
        \hline
        ホーム & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図} \\
        \hline
-       登録 & \ref{subsubsec:登録機能}節 図\ref{fig:登録画面のイメージ図} \\
+       登録 & \ref{subsubsec:登録機能(follower)}節 図\ref{fig:登録画面のイメージ図} \\
        \hline
-       検索 & \ref{subsubsec:検索機能}節 図\ref{fig:検索画面のイメージ図} \\
+       検索 & \ref{subsubsec:検索機能(follower)}節 図\ref{fig:検索画面のイメージ図} \\
        \hline
-       変更 & \ref{subsubsec:変更機能}節 図\ref{fig:変更画面のイメージ図} \\
+       変更 & \ref{subsubsec:変更機能(follower)}節 図\ref{fig:変更画面のイメージ図} \\
        \hline
-       ユーザ情報編集 & \ref{subsubsec:ユーザ情報編集機能}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
-       \hline
+       ユーザ情報編集 & \ref{subsubsec:ユーザ情報編集機能(follower)}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
     \end{tabular}
   \end{center}
 \end{minipage}
@@ -283,7 +282,7 @@
 
 %%%%%
 \subsubsection{登録機能}
-\label{subsubsec:登録機能}
+\label{subsubsec:登録機能(follower)}
 新しい資産を登録する機能. 所属, 場所, 担当, 管理者, 資産名, 形式, 個数, 画像の8項目の入力を要求する. \par
 登録画面のイメージ図を図\ref{fig:登録画面のイメージ図}に示す. 各項目について, 要求する入力形式に基づいて登録できるようになっている. \par
 ログインしているユーザの情報に基づいて, 所属, 担当はシステムによって先行入力する機能を検討中.
@@ -298,7 +297,7 @@
 %%%%%
 \clearpage
 \subsubsection{変更機能}
-\label{subsubsec:変更機能}
+\label{subsubsec:変更機能(follower)}
 資産情報を変更する機能. 図\ref{fig:変更画面のイメージ図}の項目ごとに変更を可能とする. ただし, 管理者権限のない(管理者でない)ユーザには一部の項目は変更できないものとする. 編集ができる部分は黒く表示され, 編集ができない部分については, 図\ref{fig:変更画面のイメージ図}のように灰色で表示される. 各項目について, 要求する入力形式に基づいて変更できるようにする. また, 変更を実行する前に確認をする.
 \begin{figure}[h]
   \centering
@@ -311,7 +310,7 @@
 %%%%%
 \clearpage
 \subsubsection{検索機能}
-\label{subsubsec:検索機能}
+\label{subsubsec:検索機能(follower)}
 資産番号, 製品名, 管理者, 所有者, 所在別, 購入日でそれぞれ検索またはソートを行う機能. 図\ref{fig:検索画面のイメージ図}に検索画面のイメージ図を示す. 
 \begin{figure}[h]
   \centering
@@ -324,7 +323,7 @@
 %%%%%
 \clearpage
 \subsubsection{ユーザ情報編集機能}
-\label{subsubsec:ユーザ情報編集機能}
+\label{subsubsec:ユーザ情報編集機能(follower)}
 ユーザ情報(ID, パスワード, プロフィール画像, 表示名, 所属)を編集する機能. ユーザ情報編集画面のイメージ図を図\ref{fig:ユーザ情報編集画面のイメージ図}に示す. \par
 ユーザ情報の構成について検討中.
 \begin{figure}[h]
@@ -344,7 +343,7 @@
 
 %%%%%
 \subsubsection{登録機能}
-\label{subsubsec:登録機能}
+\label{subsubsec:登録機能(admin)}
 一般ユーザでは登録ができなかった資産番号を登録することができる. 現時点では1つ1つ入力を行う必要がある. \par
 資産番号の入力方法については検討中. 
 \begin{figure}[h]
@@ -371,7 +370,7 @@
 %%%%%
 \clearpage
 \subsubsection{変更機能}
-\label{subsubsec:変更機能}
+\label{subsubsec:変更機能(admin)}
 一般ユーザでは変更ができなかった資産番号, 資産名, 形式, 所属, 管理者, 画像の計6項目を変更することができる. \par
 各項目について, 要求する入力形式に基づいて変更できるようにする. また, 変更を実行する前に確認をする. 
 \begin{figure}[h]
@@ -385,7 +384,7 @@
 %%%%%
 \clearpage
 \subsubsection{検索機能}
-\label{subsubsec:検索機能}
+\label{subsubsec:検索機能(admin)}
 資産番号, 製品名, 管理者, 所有者, 所在別, 購入日でそれぞれ検索またはソートを行う機能. 一般ユーザと画面の構成, 機能は同じである.
 \begin{figure}[h]
   \centering
@@ -398,7 +397,7 @@
 %%%%%
 \clearpage
 \subsubsection{ユーザ情報編集機能}
-\label{subsubsec:ユーザ情報編集機能}
+\label{subsubsec:ユーザ情報編集機能(admin)}
 ユーザ情報(ID, パスワード, プロフィール画像, 表示名, 所属)を編集する機能. ユーザ情報編集画面のイメージ図を図\ref{fig:adminのユーザ情報編集画面のイメージ図}に示す. \par
 一般ユーザと画面の構成, 機能は同じである.
 \begin{figure}[h]
