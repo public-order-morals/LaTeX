@@ -183,6 +183,12 @@
 変更の可不可について, 変更可能性が低いが修正する可能性があるものを, 管理者権限によってのみ変更可能であるとして, adminと表記した.
 
 %%%%%
+\subsubsection{補足説明}
+\label{subsubsec:補足説明}
+資産番号については, 事務だけでなく学科長に申請することで資産購入・登録できるように, 事務および学科長を想定したadmin(管理者ユーザ)が登録および変更できるものとした. \par
+個数については, 変更時に任意の量だけ場所の変更などが可能で, 場所が異なる資産については別のデータとして管理されるようになる. 
+
+%%%%%
 \clearpage
 \subsection{状態遷移図}
 \label{subsec:状態遷移図}
@@ -199,6 +205,40 @@
   \includegraphics[keepaspectratio, width=0.8\linewidth]{admin_transition-diagram.png}
   \caption{\label{fig:adminの状態遷移図}adminの状態遷移図}
 \end{figure}\par
+
+各画面および機能の参照先を次に示す. \\
+\begin{minipage}[t]{0.5\linewidth}
+  \vspace{1zh}
+  \begin{center}
+    \begin{tabular}{c|c}
+       ログイン & \ref{subsubsec:ユーザ登録・ログイン機能}節 図\ref{fig:ログイン画面のイメージ図} \\
+       \hline
+       ホーム & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図} \\
+       \hline
+       登録 & \ref{subsubsec:登録機能}節 図\ref{fig:登録画面のイメージ図} \\
+       \hline
+       検索 & \ref{subsubsec:検索機能}節 図\ref{fig:検索画面のイメージ図} \\
+       \hline
+       変更 & \ref{subsubsec:変更機能}節 図\ref{fig:変更画面のイメージ図} \\
+       \hline
+       ユーザ情報編集 & \ref{subsubsec:ユーザ情報編集機能}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
+       \hline
+    \end{tabular}
+  \end{center}
+\end{minipage}
+%
+\hfill
+%
+\begin{minipage}[t]{0.5\linewidth}
+  \vspace{1zh}
+  \begin{center}
+    \begin{tabular}{c|c}
+       adminログイン & \ref{subsubsec:ユーザ登録・ログイン機能}節 図\ref{fig:ログイン画面のイメージ図} \\
+       \hline
+       ホーム & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図} \\
+    \end{tabular}
+  \end{center}
+\end{minipage}
 
 %%%%%
 \clearpage
@@ -225,8 +265,8 @@
 %%%%%
 \clearpage
 \subsubsection{ユーザ登録・ログイン機能}
-\label{subsec:ユーザ登録・ログイン機能}
-メールアドレス$^*1$(サレジオドメイン)に基づくIDと任意に設定するパスワードによってユーザ情報を登録する. また, これらによりログインする機能. 登録した情報を使用して個人を識別する. 資産情報を編集したときにログを残すために実装する. ログイン画面のイメージ図を図\ref{fig:ログイン画面のイメージ図}に示す. 
+\label{subsubsec:ユーザ登録・ログイン機能}
+メールアドレス$^{*1}$(サレジオドメイン)に基づくIDと任意に設定するパスワードによってユーザ情報を登録する. また, これらによりログインする機能. 登録した情報を使用して個人を識別する. 資産情報を編集したときにログを残すために実装する. ログイン画面のイメージ図を図\ref{fig:ログイン画面のイメージ図}に示す. \par
 \begin{figure}[h]
   \centering
   \fbox{
@@ -243,7 +283,7 @@
 
 %%%%%
 \subsubsection{登録機能}
-\label{subsec:登録機能}
+\label{subsubsec:登録機能}
 新しい資産を登録する機能. 所属, 場所, 担当, 管理者, 資産名, 形式, 個数, 画像の8項目の入力を要求する. \par
 登録画面のイメージ図を図\ref{fig:登録画面のイメージ図}に示す. 各項目について, 要求する入力形式に基づいて登録できるようになっている. \par
 ログインしているユーザの情報に基づいて, 所属, 担当はシステムによって先行入力する機能を検討中.
@@ -258,7 +298,7 @@
 %%%%%
 \clearpage
 \subsubsection{変更機能}
-\label{subsec:変更機能}
+\label{subsubsec:変更機能}
 資産情報を変更する機能. 図\ref{fig:変更画面のイメージ図}の項目ごとに変更を可能とする. ただし, 管理者権限のない(管理者でない)ユーザには一部の項目は変更できないものとする. 編集ができる部分は黒く表示され, 編集ができない部分については, 図\ref{fig:変更画面のイメージ図}のように灰色で表示される. 各項目について, 要求する入力形式に基づいて変更できるようにする. また, 変更を実行する前に確認をする.
 \begin{figure}[h]
   \centering
@@ -271,7 +311,7 @@
 %%%%%
 \clearpage
 \subsubsection{検索機能}
-\label{subsec:検索機能}
+\label{subsubsec:検索機能}
 資産番号, 製品名, 管理者, 所有者, 所在別, 購入日でそれぞれ検索またはソートを行う機能. 図\ref{fig:検索画面のイメージ図}に検索画面のイメージ図を示す. 
 \begin{figure}[h]
   \centering
@@ -284,7 +324,7 @@
 %%%%%
 \clearpage
 \subsubsection{ユーザ情報編集機能}
-\label{subsec:ユーザ情報編集機能}
+\label{subsubsec:ユーザ情報編集機能}
 ユーザ情報(ID, パスワード, プロフィール画像, 表示名, 所属)を編集する機能. ユーザ情報編集画面のイメージ図を図\ref{fig:ユーザ情報編集画面のイメージ図}に示す. \par
 ユーザ情報の構成について検討中.
 \begin{figure}[h]
@@ -299,7 +339,8 @@
 \clearpage
 \subsection{管理者ユーザ(admin)}
 \label{subsec:管理者ユーザ(admin)}
-管理者ユーザは資産番号の登録と変更, 一般ユーザが変更できない資産情報の変更ができる.
+管理者ユーザは資産番号の登録と変更, 一般ユーザが変更できない資産情報の変更ができる. \par
+管理者ユーザは一部のユーザ(学科長, 事務)を想定している. 
 
 %%%%%
 \subsubsection{登録機能}
@@ -317,7 +358,7 @@
 %%%%%
 \clearpage
 \subsubsection{削除機能}
-\label{subsec:削除機能}
+\label{subsubsec:削除機能}
 資産情報を削除する機能. 削除を実行した場合, 該当の資産情報はデータから完全に削除され, サルベージされない. ただし, 削除したログは残す. ログに記載する情報は削除日時, 削除したユーザ, 削除した資産の資産番号の3つを予定している. また, 削除を実行する前にユーザに対して確認をする.
 \begin{figure}[h]
   \centering
