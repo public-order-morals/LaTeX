@@ -9,8 +9,8 @@
 
 \usepackage{amsmath, newtxmath}
 
-\usepackage[dvipdfmx]{graphicx}
-%\usepackage[draft, dvipdfmx]{graphicx}
+%\usepackage[dvipdfmx]{graphicx}
+\usepackage[draft, dvipdfmx]{graphicx}
 
 \usepackage[hang, small, bf]{caption}
 \usepackage[subrefformat=parens]{subcaption}
@@ -29,6 +29,8 @@
 
 
 \usepackage{tabularx}
+
+\usepackage{multirow}
 
 
 \makeatletter
@@ -68,7 +70,7 @@
 本節では, POaM資産管理システム（仮称）の概要を述べる.
 
 %%%%%%
-%\clearpgae
+%\clearpage
 \subsection{はじめに}
 \label{subsec:はじめに}
 本ソフトウェアはサレジオ高専で備品を扱う際に使用するソフトウェアである. \par
@@ -76,17 +78,17 @@
 これを防ぐために, PCやスマートフォンなどの各種端末から容易にアクセス可能で, 備品の情報を簡単に閲覧・更新できるようなソフトウェアを作成する.
 
 %%%%%%
-%\clearpgae
+%\clearpage
 \subsection{作成するソフトウェアの全体像}
 \label{subsec:作成するソフトウェアの全体像}
-\ref{subsec:はじめに}節で挙げた問題点を技術的に解決できるようなソフトウェアを作成するために, 以下の項目の実装が必要だと考えている.
-\begin{enumerate}
+\ref{subsec:はじめに}節で挙げた問題点を技術的に解決できるようなソフトウェアを作成するために, 以下に表されるような項目の実装が必要だと考えている.
+\begin{itemize}
   \item 備品データを視覚的に管理・検索・追加・削除・変更を行えるようなプラットフォーム
   \item 備品データを効率的に管理するデータベース
   \item 簡潔明瞭なインターフェース
   \item ユーザ機能(管理者ユーザ, 一般ユーザ)
   \item QRコードなどを活用した, カメラ付き端末からのアクセス
-\end{enumerate}
+\end{itemize}
 
 
 %%%%%%%%%%
@@ -113,6 +115,173 @@
 %\begin{itemize}
 %\item ブラウザがインストールされている各種端末
 %\end{itemize}
+
+
+%%%%%%%%%%
+\clearpage
+\section{ソフトウェア全体の構成}
+\label{sec:ソフトウェア全体の構成}
+本ソフトウェアは, サーバ・クライアント方式のWebアプリケーションでの実装を想定している. そのため, ユーザが操作するWebページとサーバ上のデータベースが存在し, 互いに連携する. \par
+\ref{subsec:ソフトウェアの開発環境}節より, それぞれのサイドでは次の言語および開発環境を使用する予定である.
+\begin{description}[labelwidth=15em]
+  \item[クライアントサイド(Webページ)] HTML, CSS, JavaScript
+  \item[サーバサイド] PHP, MySQL
+\end{description}
+また本ソフトウェアは, \ref{subsec:作成するソフトウェアの全体像}節で挙げた項目において対応する機能およびシステムによって構成される. 対応表を以下に示す.
+\begin{table}[h]
+  \caption{必要項目に対応する機能}
+  \label{tb:必要項目に対応する機能}
+  \centering
+  \begin{tabularx}{\linewidth}{l|l}
+    備品データを視覚的に管理・検索・追加・削除・変更を   & \multirow{2}{*}{登録機能, 削除機能, 変更機能, 検索機能} \\
+    行えるようなプラットフォーム                         &                                                         \\
+    \hline
+    備品データを効率的に管理するデータベース             & サーバによるデータベース                                \\
+    \hline
+    簡潔明瞭なインターフェース                           & Webページ                                               \\
+    \hline
+    ユーザ機能(管理者ユーザ, 一般ユーザ)                 & ユーザ登録・ログイン機能                                \\
+    \hline
+    QRコードなどを活用した, カメラ付き端末からのアクセス & 未定                                                    \\
+  \end{tabularx}
+\end{table}
+
+
+%%%%%%%%%%
+\clearpage
+\section{各機能・システムの詳細}
+\label{sec:各機能の詳細・システムの詳細}
+各機能および各システムについての詳細を以下にまとめる.
+
+%%%%%
+%\clearpage
+\subsection{データの形式}
+\label{subsec:データの形式}
+本ソフトウェアは資産情報をデジタルデータで扱っていく. この際に必要になる情報の保存形式を次の表\ref{tb:データの形式}に示す.
+\begin{table}[h]
+  \caption{データの形式}
+  \label{tb:データの形式}
+  \centering
+  \begin{tabular}{@{}l|l|l|l|l@{}}
+    項目     & 概要                               & 要求する入力形式     & 登録の可不可 & 変更の可不可 \\
+    \hline\hline
+    資産番号 & 資産ごとの固有のID                 & システムで生成       & admin        & admin        \\
+    \hline
+    資産名   & 登録する際の名称. 型番など.        & 文字列               & possible     & admin        \\
+    \hline
+    形式     & 資産の分類. PCやプリンターなど     & 選択形式または文字列 & possible     & admin        \\
+    \hline
+    所属     & 資産が利用, 所在する所属. 学科など & 選択形式             & possible     & admin        \\
+    \hline
+    場所     & 資産の所在. 部屋番号を想定         & 選択形式             & possible     & possible     \\
+    \hline
+    担当     & 資産の所有者および使用者           & 文字列               & possible     & possible     \\
+    \hline
+    管理者   & 資産の管理者または責任者           & 選択形式または文字列 & possible     & admin        \\
+    \hline
+    個数     & 資産の個数                         & 整数値               & possible     & possible     \\
+    \hline
+    画像     & 資産の写真またはイメージ図         & 画像のアップロード   & possible     & admin        \\
+    \hline\hline
+    取得日時 & 資産情報を登録した日時             & システムで生成       & impossible   & impossible   \\
+    \hline
+    編集日時 & 資産情報に変更を加えた最新の日時   & システムで生成       & impossible   & impossible
+  \end{tabular}
+\end{table}\par
+変更の可不可について, 変更可能性は低いが修正する可能性があるものを, 管理者ユーザによってのみ変更可能であるとして, adminと表記した.\par
+個数については, 変更時に任意の量だけ場所の変更などが可能で, 場所が異なる資産については別のデータとして管理されるようになる.
+
+%%%%%
+%\clearpage
+\subsection{一般ユーザと管理者ユーザについて}
+\label{sec:一般ユーザと管理者ユーザについて}
+一般ユーザと管理者ユーザの概要や相違点などについて記述する。\par
+一般ユーザはデータの登録(資産番号を除く), 資産の場所・担当・個数の変更が可能である。管理者ユーザの管理下にあり、管理者ユーザ以外が一般ユーザを新規登録することはできない。
+
+%%%%%
+\clearpage
+\clearpage
+\subsection{状態遷移図}
+\label{sec:状態遷移図}
+本ソフトウェアを実行した際の状態遷移図を次に示す. 図\ref{fig:一般ユーザの状態遷移図}を一般ユーザの状態遷移図, 図\ref{fig:管理者ユーザの状態遷移図}を管理者ユーザの状態遷移図とする.
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/follower_transition_diagram.png}
+  \caption{\label{fig:一般ユーザの状態遷移図}一般ユーザの状態遷移図}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/admin_transition_diagram.png}
+  \caption{\label{fig:管理者ユーザの状態遷移図}管理者ユーザの状態遷移図}
+\end{figure}
+各画面および機能の参照先を次に示す. \\
+\begin{minipage}[t]{0.5\linewidth}
+  \vspace{1zh}
+  \begin{center}
+    \begin{tabular}{c|c}
+      ログイン       & \ref{subsubsec:ユーザ登録・ログイン機能}節 図\ref{fig:ログイン画面のイメージ図}           \\
+      \hline
+      ホーム         & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図}                           \\
+      \hline
+      登録           & \ref{subsubsec:登録機能(follower)}節 図\ref{fig:登録画面のイメージ図}                     \\
+      \hline
+      検索           & \ref{subsubsec:検索機能(follower)}節 図\ref{fig:検索画面のイメージ図}                     \\
+      \hline
+      変更           & \ref{subsubsec:変更機能(follower)}節 図\ref{fig:変更画面のイメージ図}                     \\
+      \hline
+      ユーザ情報編集 & \ref{subsubsec:ユーザ情報編集機能(follower)}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
+    \end{tabular}
+  \end{center}
+\end{minipage}
+%
+\hfill
+%
+\begin{minipage}[t]{0.5\linewidth}
+  \vspace{1zh}
+  \begin{center}
+    \begin{tabular}{c|c}
+      adminログイン & \ref{subsubsec:ユーザ登録・ログイン機能}節 図\ref{fig:ログイン画面のイメージ図} \\
+      \hline
+      ホーム        & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図}                 \\
+    \end{tabular}
+  \end{center}
+\end{minipage}
+
+%%%%%
+\clearpage
+\subsection{イメージ図}
+\label{sec:イメージ図}
+状態遷移図(図\ref{fig:一般ユーザの状態遷移図}, \ref{fig:管理者ユーザの状態遷移図})内にある各画面の完成イメージを以下に示していく。
+
+%%%%%
+%\clearpage
+\subsubsection{ログイン画面}
+\label{sec:ログイン画面}
+メールアドレス(サレジオドメイン)に基づく{\bf ID}と任意に設定する{\bf パスワー}ドを入力し、ログインする。\par
+ログインすることによって誰がどのように資産データに変更を加えたかのログを残すことができるため、ユーザおよびログインのシステムを導入した。
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+
+%%%%%
+\clearpage
+\subsubsection{ホーム画面}
+\label{sec:ホーム画面}
+図\ref{fig:}が一般ユーザ、図\ref{fig:}が管理者ユーザに表示されるホーム画面のイメージ図である。\par
+システムロゴ、資産登録機能へジャンプするボタン、ユーザ情報編集機能(一般ユーザ)またはユーザ管理機能(管理者ユーザ)へジャンプするボタン、資産検索機能を備えている。検索機能では、特定のデータ項目における絞り込みでの検索が可能で、項目を選択することで動的に資産を見つけることができる。\par
+UIの違いはないが、ログインしたあとすぐに表示される画面であることから、どちらの権限を持つアカウントでログインしたかを分かりやすくするために異なる配色を用いた。
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
 
 
 \end{document}
