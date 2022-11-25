@@ -1,0 +1,122 @@
+%プログラミング応用/ソフトウェア工学 要求仕様書 要求仕様書
+\documentclass[11ptm]{jsarticle}
+
+\usepackage{etoolbox}
+
+\usepackage{array}
+
+\usepackage{enumitem}
+
+\usepackage{amsmath, newtxmath}
+
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage[draft, dvipdfmx]{graphicx}
+
+\usepackage[hang, small, bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+
+\usepackage{listings, jlisting}
+
+\lstset{
+  basicstyle={\ttfamily\small},
+  frame=tbrl,
+  breaklines=true,
+%  language=C,
+  lineskip=-0.5ex,
+  tabsize=2
+}
+
+
+\usepackage{tabularx}
+
+
+\makeatletter
+\AtBeginDocument{
+\let\c@figure\c@lstlisting
+\let\thefigure\thelstlisting
+\let\ftype@lstlisting\ftype@figure
+}
+\makeatother
+
+\title{{\Huge 要求仕様書}\\第5版}
+\author{24 高橋祥吾\\26 田桑大輔\\29 田中稀尋\\30 谷川僚}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setcounter{page}{0}
+
+\maketitle
+\thispagestyle{empty}
+
+\clearpage
+
+\setcounter{page}{0}
+\thispagestyle{empty}
+
+\tableofcontents
+\clearpage
+
+
+%%%%%%%%%%%%
+%\clearpgae
+\section{ソフトウェアの概要}
+\label{sec:ソフトウェアの概要}
+本節では, POaM資産管理システム（仮称）の概要を述べる.
+
+%%%%%%
+%\clearpgae
+\subsection{はじめに}
+\label{subsec:はじめに}
+本ソフトウェアはサレジオ高専で備品を扱う際に使用するソフトウェアである. \par
+サレジオ高専での備品の管理は10,000円以上のものを対象に行われており, 対象の備品にID, 種類, 名前, 管理者が書かれたシールを貼り管理している. 現状では備品を管理する際にリストへの追加や削除が簡単に行えないのに加え, 備品が移動した際に再度の登録を行っていないため, 備品の紛失などが起こってしまっている.\par
+これを防ぐために, PCやスマートフォンなどの各種端末から容易にアクセス可能で, 備品の情報を簡単に閲覧・更新できるようなソフトウェアを作成する.
+
+%%%%%%
+%\clearpgae
+\subsection{作成するソフトウェアの全体像}
+\label{subsec:作成するソフトウェアの全体像}
+\ref{subsec:はじめに}節で挙げた問題点を技術的に解決できるようなソフトウェアを作成するために, 以下の項目の実装が必要だと考えている.
+\begin{enumerate}
+  \item 備品データを視覚的に管理・検索・追加・削除・変更を行えるようなプラットフォーム
+  \item 備品データを効率的に管理するデータベース
+  \item 簡潔明瞭なインターフェース
+  \item ユーザ機能(管理者ユーザ, 一般ユーザ)
+  \item QRコードなどを活用した, カメラ付き端末からのアクセス
+\end{enumerate}
+
+
+%%%%%%%%%%
+\clearpage
+\section{開発及び動作プラットフォーム}
+\label{sec:開発及び動作プラットフォーム}
+本ソフトウェアの開発及び動作をするプラットフォームを以下に示す.
+
+%%%%%
+%\clearpgae
+\subsection{ソフトウェアの開発環境}
+\label{subsec:ソフトウェアの開発環境}
+\begin{description}[labelwidth=9em]
+  \item[使用言語] HTML, CSS, JavaScript, PHP, MySQL
+  \item[使用フレームワーク] XAMPP
+  \item[使用ミドルウェア] Git
+  \item[使用開発環境] Visual Studio Code, Xcode
+\end{description}
+
+\subsection{ソフトウェアの動作プラットフォーム}
+\label{subsec:ソフトウェアの動作プラットフォーム}
+本ソフトウェアは, インターネットに接続可能で, ブラウザがインストールされている各種端末上で動作する. \par
+スタンドアロン(オフライン)でも動作するようにするか, オンライン上での動作に限定するかは未定である.
+%\begin{itemize}
+%\item ブラウザがインストールされている各種端末
+%\end{itemize}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+%
