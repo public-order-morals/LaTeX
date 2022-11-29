@@ -32,6 +32,8 @@
 
 \usepackage{multirow}
 
+%\usepackage[subrefformat=parens]{subcaption}
+
 
 \makeatletter
 \AtBeginDocument{
@@ -41,7 +43,7 @@
 }
 \makeatother
 
-\title{{\Huge 要求仕様書}\\第5版}
+\title{{\Huge 要求仕様書}\\第6版}
 \author{24 高橋祥吾\\26 田桑大輔\\29 田中稀尋\\30 谷川僚}
 \date{}
 
@@ -195,8 +197,8 @@
 %\clearpage
 \subsection{一般ユーザと管理者ユーザについて}
 \label{sec:一般ユーザと管理者ユーザについて}
-一般ユーザと管理者ユーザの概要や相違点などについて記述する。\par
-一般ユーザはデータの登録(資産番号を除く), 資産の場所・担当・個数の変更が可能である。管理者ユーザの管理下にあり、管理者ユーザ以外が一般ユーザを新規登録することはできない。
+一般ユーザと管理者ユーザの概要や相違点などについて記述する. \par
+一般ユーザはデータの登録(資産番号を除く), 資産の場所・担当・個数の変更が可能である. 管理者ユーザの管理下にあり, 管理者ユーザ以外が一般ユーザを新規登録することはできない.
 
 %%%%%
 \clearpage
@@ -251,14 +253,14 @@
 \clearpage
 \subsection{イメージ図}
 \label{sec:イメージ図}
-状態遷移図(図\ref{fig:一般ユーザの状態遷移図}, \ref{fig:管理者ユーザの状態遷移図})内にある各画面の完成イメージを以下に示していく。
+状態遷移図(図\ref{fig:一般ユーザの状態遷移図}, \ref{fig:管理者ユーザの状態遷移図})内にある各画面の完成イメージを以下に示していく.
 
 %%%%%
 %\clearpage
 \subsubsection{ログイン画面}
 \label{sec:ログイン画面}
-メールアドレス(サレジオドメイン)に基づく{\bf ID}と任意に設定する{\bf パスワー}ドを入力し、ログインする。\par
-ログインすることによって誰がどのように資産データに変更を加えたかのログを残すことができるため、ユーザおよびログインのシステムを導入した。
+メールアドレス(サレジオドメイン)に基づく{\bf ID}と任意に設定する{\bf パスワー}ドを入力し, ログインする. \par
+ログインすることによって誰がどのように資産データに変更を加えたかのログを残すことができるため, ユーザおよびログインのシステムを導入した.
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
@@ -269,9 +271,48 @@
 \clearpage
 \subsubsection{ホーム画面}
 \label{sec:ホーム画面}
-図\ref{fig:}が一般ユーザ、図\ref{fig:}が管理者ユーザに表示されるホーム画面のイメージ図である。\par
-システムロゴ、資産登録機能へジャンプするボタン、ユーザ情報編集機能(一般ユーザ)またはユーザ管理機能(管理者ユーザ)へジャンプするボタン、資産検索機能を備えている。検索機能では、特定のデータ項目における絞り込みでの検索が可能で、項目を選択することで動的に資産を見つけることができる。\par
-UIの違いはないが、ログインしたあとすぐに表示される画面であることから、どちらの権限を持つアカウントでログインしたかを分かりやすくするために異なる配色を用いた。
+図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示されるホーム画面のイメージ図である. \par
+システムロゴ, 資産登録機能へジャンプするボタン, ユーザ情報編集機能(一般ユーザ)またはユーザ管理機能(管理者ユーザ)へジャンプするボタン, 資産検索機能を備えている. 検索機能では, 特定のデータ項目における絞り込みでの検索が可能で, 項目を選択することで動的に資産を見つけることができる. \par
+UIの違いはないが, ログインしたあとすぐに表示される画面であることから, どちらの権限を持つアカウントでログインしたかを分かりやすくするために異なる配色を用いた.
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+
+%%%%%
+\clearpage
+\subsubsection{新規登録画面}
+\label{sec:新規登録画面}
+図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示される新規登録画面のイメージ図である. \par
+ホーム画面(図\ref{fig:})の「資産登録機能へジャンプするボタン」からジャンプしてきた画面である. \par
+各データ項目の入力フォームと, 情報を確定しデータベースへ反映するための完了ボタンがある. 管理者ユーザは一般ユーザよりも入力できる項目が多い. ただし, 所属など一部の項目は入力される内容が限られているため, (例:所属の場合AD, EE, ME, CS, AC)選択式による入力方式を採っている. また, ホーム画面に戻るためのボタンを備えている.
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
+  \caption{\label{fig:}}
+\end{figure}
+
+%%%%%
+\clearpage
+\subsubsection{ユーザ情報編集画面・ユーザ管理画面}
+\label{sec:ユーザ情報編集画面・ユーザ管理画面}
+図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示されるユーザ情報編集画面・ユーザ管理画面のイメージ図である. \par
+ホーム画面(図\ref{fig:})の「ユーザ情報変種機能・ユーザ管理機能へジャンプするボタン」からジャンプしてきた画面である. \par
+ユーザ情報編集画面(一般ユーザ)の場合, ログインしているアカウントのID, パスワード, 名前, 所属, アイコンの確認ができる. このうち, パスワードとアイコンが一般ユーザにより任意に変更可能である. また, ホーム画面に戻るためのボタンを備えている. \par
+ユーザ管理画面(管理者ユーザ)の場合, システムに存在するアカウントの一覧と, ユーザ新規作成ボタンがある. ユーザの一覧は学科ごとに絞り込みが可能となっている. ユーザ新規作成ボタンおよび各アカウントのエリアは別のページにジャンプする. こちらもホーム画面に戻るためのボタンを備えている. \par
+イメージ図は次ページに示す.
+\clearpage
 \begin{figure}[h]
   \centering
   \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
