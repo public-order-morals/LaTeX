@@ -9,8 +9,8 @@
 
 \usepackage{amsmath, newtxmath}
 
-%\usepackage[dvipdfmx]{graphicx}
-\usepackage[draft, dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage[draft, dvipdfmx]{graphicx}
 
 \usepackage[hang, small, bf]{caption}
 \usepackage[subrefformat=parens]{subcaption}
@@ -208,7 +208,7 @@
 本ソフトウェアを実行した際の状態遷移図を次に示す. 図\ref{fig:一般ユーザの状態遷移図}を一般ユーザの状態遷移図, 図\ref{fig:管理者ユーザの状態遷移図}を管理者ユーザの状態遷移図とする.
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/follower_transition_diagram.png}
+  \includegraphics[keepaspectratio, width=0.69\linewidth]{source/follower_transition_diagram.png}
   \caption{\label{fig:一般ユーザの状態遷移図}一般ユーザの状態遷移図}
 \end{figure}
 \begin{figure}[h]
@@ -221,17 +221,17 @@
   \vspace{1zh}
   \begin{center}
     \begin{tabular}{c|c}
-      ログイン       & \ref{subsubsec:ユーザ登録・ログイン機能}節 図\ref{fig:ログイン画面のイメージ図}           \\
+      ログイン         & \ref{sec:ログイン画面}節 図\ref{fig:ログイン画面のイメージ図}                             \\
       \hline
-      ホーム         & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図}                           \\
+      ホーム(follower) & \ref{subsubsec:ホーム画面}節 図\ref{fig:ホーム画面のイメージ図}                           \\
       \hline
-      登録           & \ref{subsubsec:登録機能(follower)}節 図\ref{fig:登録画面のイメージ図}                     \\
+      登録             & \ref{subsubsec:登録機能(follower)}節 図\ref{fig:登録画面のイメージ図}                     \\
       \hline
-      検索           & \ref{subsubsec:検索機能(follower)}節 図\ref{fig:検索画面のイメージ図}                     \\
+      検索             & \ref{subsubsec:検索機能(follower)}節 図\ref{fig:検索画面のイメージ図}                     \\
       \hline
-      変更           & \ref{subsubsec:変更機能(follower)}節 図\ref{fig:変更画面のイメージ図}                     \\
+      変更             & \ref{subsubsec:変更機能(follower)}節 図\ref{fig:変更画面のイメージ図}                     \\
       \hline
-      ユーザ情報編集 & \ref{subsubsec:ユーザ情報編集機能(follower)}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
+      ユーザ情報編集   & \ref{subsubsec:ユーザ情報編集機能(follower)}節 図\ref{fig:ユーザ情報編集画面のイメージ図} \\
     \end{tabular}
   \end{center}
 \end{minipage}
@@ -259,69 +259,83 @@
 %\clearpage
 \subsubsection{ログイン画面}
 \label{sec:ログイン画面}
-メールアドレス(サレジオドメイン)に基づく{\bf ID}と任意に設定する{\bf パスワー}ドを入力し, ログインする. \par
+メールアドレス(サレジオドメイン)に基づく{\bf ID}と任意に設定する{\bf パスワード}を入力し, ログインする. \par
 ログインすることによって誰がどのように資産データに変更を加えたかのログを残すことができるため, ユーザおよびログインのシステムを導入した.
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/login.PNG}
+  }
+  \caption{\label{fig:ログイン画面のイメージ図}ログイン画面のイメージ図}
 \end{figure}
 
 %%%%%
 \clearpage
 \subsubsection{ホーム画面}
 \label{sec:ホーム画面}
-図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示されるホーム画面のイメージ図である. \par
+図\ref{fig:ホーム画面(一般ユーザ)のイメージ図}が一般ユーザ, 図\ref{fig:ホーム画面(管理者ユーザ)のイメージ図}が管理者ユーザに表示されるホーム画面のイメージ図である. \par
 システムロゴ, 資産登録機能へジャンプするボタン, ユーザ情報編集機能(一般ユーザ)またはユーザ管理機能(管理者ユーザ)へジャンプするボタン, 資産検索機能を備えている. 検索機能では, 特定のデータ項目における絞り込みでの検索が可能で, 項目を選択することで動的に資産を見つけることができる. \par
 UIの違いはないが, ログインしたあとすぐに表示される画面であることから, どちらの権限を持つアカウントでログインしたかを分かりやすくするために異なる配色を用いた.
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/home_follower.PNG}
+  }
+  \caption{\label{fig:ホーム画面(一般ユーザ)のイメージ図}ホーム画面(一般ユーザ)のイメージ図}
 \end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/home_admin.PNG}
+  }
+  \caption{\label{fig:ホーム画面(管理者ユーザ)のイメージ図}ホーム画面(管理者ユーザ)のイメージ図}
 \end{figure}
 
 %%%%%
 \clearpage
 \subsubsection{新規登録画面}
 \label{sec:新規登録画面}
-図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示される新規登録画面のイメージ図である. \par
-ホーム画面(図\ref{fig:})の「資産登録機能へジャンプするボタン」からジャンプしてきた画面である. \par
+図\ref{fig:新規登録画面(一般ユーザ)のイメージ図}が一般ユーザ, 図\ref{fig:新規登録画面(管理者ユーザ)のイメージ図}が管理者ユーザに表示される新規登録画面のイメージ図である. \par
+ホーム画面(図\ref{fig:ホーム画面(一般ユーザ)のイメージ図}, \ref{fig:ホーム画面(管理者ユーザ)のイメージ図})の「資産登録機能へジャンプするボタン」からジャンプしてきた画面である. \par
 各データ項目の入力フォームと, 情報を確定しデータベースへ反映するための完了ボタンがある. 管理者ユーザは一般ユーザよりも入力できる項目が多い. ただし, 所属など一部の項目は入力される内容が限られているため, (例:所属の場合AD, EE, ME, CS, AC)選択式による入力方式を採っている. また, ホーム画面に戻るためのボタンを備えている.
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/submit_follower.PNG}
+  }
+  \caption{\label{fig:新規登録画面(一般ユーザ)のイメージ図}新規登録画面(一般ユーザ)のイメージ図}
 \end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/submit_admin.PNG}
+  }
+  \caption{\label{fig:新規登録画面(管理者ユーザ)のイメージ図}新規登録画面(管理者ユーザ)のイメージ図}
 \end{figure}
 
 %%%%%
 \clearpage
 \subsubsection{ユーザ情報編集画面・ユーザ管理画面}
 \label{sec:ユーザ情報編集画面・ユーザ管理画面}
-図\ref{fig:}が一般ユーザ, 図\ref{fig:}が管理者ユーザに表示されるユーザ情報編集画面・ユーザ管理画面のイメージ図である. \par
-ホーム画面(図\ref{fig:})の「ユーザ情報変種機能・ユーザ管理機能へジャンプするボタン」からジャンプしてきた画面である. \par
+図\ref{fig:ユーザ情報編集画面のイメージ図}が一般ユーザ, 図\ref{fig:ユーザ管理画面のイメージ図}が管理者ユーザに表示されるユーザ情報編集画面・ユーザ管理画面のイメージ図である. \par
+ホーム画面(図\ref{fig:ホーム画面(一般ユーザ)のイメージ図}, \ref{fig:ホーム画面(管理者ユーザ)のイメージ図})の「ユーザ情報変種機能/ユーザ管理機能へジャンプするボタン」からジャンプしてきた画面である. \par
 ユーザ情報編集画面(一般ユーザ)の場合, ログインしているアカウントのID, パスワード, 名前, 所属, アイコンの確認ができる. このうち, パスワードとアイコンが一般ユーザにより任意に変更可能である. また, ホーム画面に戻るためのボタンを備えている. \par
 ユーザ管理画面(管理者ユーザ)の場合, システムに存在するアカウントの一覧と, ユーザ新規作成ボタンがある. ユーザの一覧は学科ごとに絞り込みが可能となっている. ユーザ新規作成ボタンおよび各アカウントのエリアは別のページにジャンプする. こちらもホーム画面に戻るためのボタンを備えている. \par
 イメージ図は次ページに示す.
 \clearpage
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/user_info_edit_follower.png}
+  }
+  \caption{\label{fig:ユーザ情報編集画面のイメージ図}ユーザ情報編集画面のイメージ図}
 \end{figure}
 \begin{figure}[h]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{source/tmp_picture.png}
-  \caption{\label{fig:}}
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/user_administration.PNG}
+  }
+  \caption{\label{fig:ユーザ管理画面のイメージ図}ユーザ管理画面のイメージ図}
 \end{figure}
 
 
