@@ -1,0 +1,102 @@
+%(subject) (theme) (title)
+\documentclass[11ptm]{jsarticle}
+
+\usepackage{etoolbox}
+
+\usepackage{array}
+
+\usepackage{enumitem}
+
+\usepackage{amsmath, newtxmath}
+
+\usepackage[dvipdfmx]{graphicx}
+%\usepackage[draft, dvipdfmx]{graphicx}
+
+\usepackage[hang, small, bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+
+\usepackage{listings, jlisting}
+
+\lstset{
+  basicstyle={\ttfamily\small},
+  frame=tbrl,
+  breaklines=true,
+%  language=C,
+  lineskip=-0.5ex,
+  tabsize=2
+}
+
+\usepackage{tabularx}
+
+\makeatletter
+\AtBeginDocument{
+\let\c@figure\c@lstlisting
+\let\thefigure\thelstlisting
+\let\ftype@lstlisting\ftype@figure
+}
+\makeatother
+
+\title{{\Huge POaM資産管理システム(仮称)\\操作マニュアル}\\第1版}
+\author{24 高橋祥吾\\26 田桑大輔\\29 田中稀尋\\30 谷川僚}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+\setcounter{page}{0}
+
+\maketitle
+\thispagestyle{empty}
+
+\clearpage
+
+\setcounter{page}{0}
+\thispagestyle{empty}
+
+\tableofcontents
+\clearpage
+
+
+%%%%%%%%%%
+%\clearpage
+\section{sectionは何が要るんだろう}
+\label{sec:}
+マニュアルには種類がある
+\begin{itemize}
+  \item 操作マニュアル
+  \item 業務マニュアル
+  \item 障害対応マヌカハニー
+  \item システムマニュアル
+\end{itemize}
+それぞれについて少し解説する\par
+操作マニュアルとは、システムの使い方、操作方法を記述するマニュアル。システムの起動や終了の仕方をはじめ、システムが備えるすべての機能の使い方、その機能を使う際の操作方法を詳細に記述。\par
+業務マニュアルとは、システムを使った業務の進め方を記述するマニュアル。ひとつひとつの業務の流れ・手順を記述するとともに、流れ・手順のどの時点でシステムのどの機能を使うのかがわかるように記述する。機能の使い方や操作方法を記述する必要はない(操作マニュアルに任せる)。\par
+障害対応マニュアルとは、システムに障害が生じたときの対応処理の方法を記述したもの。ただし、エンドユーザが自力で対応・解決できる範囲の障害だけに限る。要はQ$\&$A。\par
+システムマニュアルとは、システムの仕組みや構造・全体的な構成などを基本からわかりやすく説明したもの。エンドユーザ向けであり、システム管理者やエンジニア向けのマニュアルのような詳細かつ専門的なものではなく、入門レベルの概要的なものになる。\\\par
+我々が制作するのは授業的には操作マニュアルのみで十分だが、その他のマニュアルを制作してもソフトウェア工学の点数として評価される。また、障害対応マニュアルの一部を掲載すると丁寧。
+
+
+%%%%%%%%%%
+\clearpage
+{\Large\bfseries\ 改変履歴}
+\begin{table}[htbp]
+  %\caption{}
+  %\label{tb:}
+  \centering
+  \begin{tabularx}{\textwidth}{wc{0.2\linewidth}|wl{0.6\linewidth}|wl{0.2\linewidth}}
+    日付       & 項目     & 担当者 \\
+    \hline \hline
+    2022/12/02 & 初版作成 & 高橋   \\
+    %\hline
+  \end{tabularx}
+\end{table}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+
+%
