@@ -27,10 +27,26 @@
   tabsize=2
 }
 
-\usepackage{tabularx}
+\usepackage{tabularx}% 表(改変履歴)のため
 
-\usepackage{hyperref}
-\usepackage{pxjahyper}
+\usepackage{hyperref}% ハイパーリンク付き参照
+\usepackage{pxjahyper}% ハイパーリンク内の日本語の文字化け防止
+
+\usepackage[margin=20mm]{geometry}% 余白調整用
+% geometry settings
+%\setlength{\top}{1mm}
+%\renewcommand{\voffset}{1mm}
+\renewcommand{\baselinestretch}{0.78}
+% geometry settings
+
+\usepackage{fancybox}% fbox以外のboxコマンドを導入
+
+\usepackage{fancyhdr}% ヘッダー・フッター装飾
+% fancyhdr settings
+\pagestyle{fancy}
+\lhead{{\small\bf 管理者向けマニュアル}}
+\rhead{{\small\bf \leftmark}}
+% fansyhdr settings end.
 
 \makeatletter
 \AtBeginDocument{
@@ -210,16 +226,16 @@ IE9+のブラウザ
 \subsection{システムの終了}
 \label{sec:システムの終了}
 ブラウザのタブを閉じることでシステムを終了できます。\par
-登録などの資産に関する作業をしているとき、\fbox{完了}ボタンを押す前にシステムを終了した場合、作業内容は保存されません。
+登録などの資産に関する作業をしているとき、\ovalbox{完了}ボタンを押す前にシステムを終了した場合、作業内容は保存されません。
 
 
 %%%%%%%%%%
 %\clearpage
 \section{ログイン}
 \label{sec:ログイン}
-登録されたメールアドレスとパスワードをフォームに入力し、\fbox{ログイン}ボタンを押すことでログインできます。\par
+登録されたメールアドレスとパスワードをフォームに入力し、\ovalbox{ログイン}ボタンを押すことでログインできます。\par
 ログインするとホーム画面(図\ref{fig:ホーム画面})が表示されます。\par
-パスワードの入力フォームの横にある\fbox{非表示中}ボタンを押すと、入力中のパスワードの伏字を外すことができます。
+パスワードの入力フォームの横にある\ovalbox{非表示中}ボタンを押すと、入力中のパスワードの伏字を外すことができます。
 \begin{figure}[h]
   \centering
   \fbox{
@@ -252,7 +268,7 @@ IE9+のブラウザ
 \clearpage
 \section{資産の登録}
 \label{sec:資産の登録}
-資産番号、所属、資産名、場所、担当者、管理者、形式、個数、取得年月日、画像のURLを入力できるようになっています(図\ref{fig:登録画面})。\fbox{入力内容を確認}ボタンを押すと確認画面(図\ref{fig:登録画面の確認表示})が表示され、\fbox{登録}ボタンを押すと登録できます。\par
+資産番号、所属、資産名、場所、担当者、管理者、形式、個数、取得年月日、画像のURLを入力できるようになっています(図\ref{fig:登録画面})。\ovalbox{入力内容を確認}ボタンを押すと確認画面(図\ref{fig:登録画面の確認表示})が表示され、\ovalbox{登録}ボタンを押すと登録できます。\par
 %各項目について入力形式とか詳しく言うかどうか
 %Core2Duoは各項目ごとにsubsectionをたてることで「登録手順」としていた 我々は画像で対応したい
 %確認画面が表示されるところまで記載
@@ -278,11 +294,11 @@ IE9+のブラウザ
 \section{資産の検索}
 \label{sec:資産の検索}
 ホーム画面\ref{fig:ホーム画面}の下部で資産の検索を行えます。\par
-検索は項目別に絞り込んで行えます。項目は所属、場所、担当、管理者となっており、これらを選択または入力して\fbox{上記の条件で絞り込み}ボタンを押すことで検索結果が変化します。
+検索は項目別に絞り込んで行えます。項目は所属、場所、担当、管理者となっており、これらを選択または入力して\ovalbox{上記の条件で絞り込み}ボタンを押すことで検索結果が変化します。
 %検索画面のスクショが必要
 \begin{figure}[h]
   \centering
-  \fbox{
+  \ovalbox{
     \includegraphics[keepaspectratio, width=0.8\linewidth]{source/home.png}
   }
   \caption{\label{fig:検索}検索}
@@ -293,7 +309,7 @@ IE9+のブラウザ
 \clearpage
 \section{資産の編集}
 \label{sec:資産の編集}
-資産番号、所属、資産名、場所、担当者、管理者、形式、個数、取得年月日、画像のURLを入力できるようになっています(図\ref{fig:変更画面})。\fbox{入力内容を確認}ボタンを押すと確認画面(図\ref{fig:変更画面の確認表示})が表示され、\fbox{変更}ボタンを押すと登録できます。\par
+資産番号、所属、資産名、場所、担当者、管理者、形式、個数、取得年月日、画像のURLを入力できるようになっています(図\ref{fig:変更画面})。\ovalbox{入力内容を確認}ボタンを押すと確認画面(図\ref{fig:変更画面の確認表示})が表示され、\ovalbox{変更}ボタンを押すと登録できます。\par
 %・登録と同じようにすればいいと思う\par
 %・確認画面が表示されるところまで記載\par
 %・画像内の説明文をより詳しくするイメージで
@@ -342,7 +358,7 @@ IE9+のブラウザ
 \clearpage
 \section{ユーザの管理}
 \label{sec:ユーザの管理}
-本システムに登録されているユーザを一覧し、管理することができます。一覧は学科ごとに分かれて表示され、各データには\fbox{削除}ボタンが付属しています。\fbox{削除}ボタンを押すと確認画面(図\ref{fig:ユーザの管理画面の確認表示})が表示され、\fbox{{\sf OK}}ボタンを押すと登録できます
+本システムに登録されているユーザを一覧し、管理することができます。一覧は学科ごとに分かれて表示され、各データには\ovalbox{削除}ボタンが付属しています。\ovalbox{削除}ボタンを押すと確認画面(図\ref{fig:ユーザの管理画面の確認表示})が表示され、\ovalbox{{\sf OK}}ボタンを押すと登録できます
 %・ユーザ管理
 \begin{figure}[h]
   \centering
