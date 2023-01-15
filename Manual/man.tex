@@ -34,9 +34,7 @@
 
 \usepackage[margin=20mm]{geometry}% 余白調整用
 % geometry settings
-%\setlength{\top}{1mm}
-%\renewcommand{\voffset}{1mm}
-\renewcommand{\baselinestretch}{0.78}
+\renewcommand{\baselinestretch}{0.78}% 行間を少し狭める
 % geometry settings
 
 \usepackage{fancybox}% fbox以外のboxコマンドを導入
@@ -60,8 +58,7 @@
 \author{24 高橋祥吾\\26 田桑大輔\\29 田中稀尋\\30 谷川僚}
 \date{}
 
-%sectionを"section章"として出力するための設定
-%\renewcommand{見出しコマンド}{書式}
+%見出しの表示形式を再設定
 \renewcommand{\thepart}{\arabic{part}}
 \renewcommand{\thesection}{\ \arabic{section}章}
 \renewcommand{\thesubsection}{\ \arabic{section}.\arabic{subsection}}
@@ -298,7 +295,7 @@ IE9+のブラウザ
 %検索画面のスクショが必要
 \begin{figure}[h]
   \centering
-  \ovalbox{
+  \fbox{
     \includegraphics[keepaspectratio, width=0.8\linewidth]{source/home.png}
   }
   \caption{\label{fig:検索}検索}
@@ -381,6 +378,17 @@ IE9+のブラウザ
 \section{管理者のパスワード変更}
 \label{sec:管理者のパスワード変更}
 %管理者のパスワードを変更することができます。パスワードを変更するとき、変更したときは関係者に通達することを推奨します。
+2023/01/15 23:42現在 htmlのファイルだけある
+
+
+%%%%%%%%%%
+\clearpage
+\section{ユーザの新規追加}
+\label{sec:ユーザの新規追加}
+\hspace{-1em}・ユーザの新規追加はadminしか行えない\\
+・追加するユーザのデータのうち、パスワードは初期は固定値passwordが与えられる\\
+・ユーザを追加するとき、チェックボックスで新規追加するユーザがadminなのかfollowerなのか決める\\
+・ユーザの新規追加はadminしか行えないので、始祖のadminはDBに直接書きこまれたものを用いる
 
 
 %%%%%%%%%%
