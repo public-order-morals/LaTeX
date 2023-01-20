@@ -415,8 +415,15 @@ POaM資産管理システム(以下、本システム)は、本校の資産を�
 \clearpage
 \section{資産の削除}
 \label{sec:資産の削除}
-ホーム画面および検索機能で削除したい資産データを見つけ、削除ボタンを押すことでその資産データを削除できます。\\
+ホーム画面および検索機能で削除したい資産データを見つけ、削除ボタンを押すことでその資産データを削除できます。\ovalbox{削除}ボタンを押すと確認画面({\tt image}\ \ref{fig:削除の確認表示})が表示され、\ovalbox{{\sf OK}}ボタンを押すと登録できます。\\
 画面右上の\ovalbox{資産}ボタンからホーム画面へ戻ることができます。
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[keepaspectratio, width=0.8\linewidth]{source/delete_verification.png}
+  }
+  \caption{\label{fig:削除の確認表示}削除の確認表示}
+\end{figure}
 
 
 \begin{comment}
@@ -475,16 +482,21 @@ POaM資産管理システム(以下、本システム)は、本校の資産を�
 \section{管理者のパスワード変更}
 \label{sec:管理者のパスワード変更}
 %管理者のパスワードを変更することができます。パスワードを変更するとき、変更したときは関係者に通達することを推奨します。
-2023/01/15 23:42現在 htmlのファイルだけある
+%2023/01/15 23:42現在 htmlのファイルだけある
+未実装
 
 
 %%%%%%%%%%
-\clearpage
+%\clearpage
 \section{ユーザの新規追加}
-\label{sec:ユーザの新規追加}・ユーザの新規追加はadminしか行えない\\
+\label{sec:ユーザの新規追加}
+\begin{comment}
+・ユーザの新規追加はadminしか行えない\\
 ・追加するユーザのデータのうち、パスワードは初期は固定値passwordが与えられる\\
 ・ユーザを追加するとき、チェックボックスで新規追加するユーザがadminなのかfollowerなのか決める\\
 ・ユーザの新規追加はadminしか行えないので、始祖のadminはDBに直接書きこまれたものを用いる
+\end{comment}
+未実装
 
 
 %%%%%%%%%%
@@ -507,13 +519,13 @@ POaM資産管理システム(以下、本システム)は、本校の資産を�
   %\label{tb:}
   \centering
   \begin{tabularx}{\textwidth}{wc{0.2\linewidth}|wl{0.6\linewidth}|wl{0.2\linewidth}}
-    日付       & 項目                                                     & 担当者 \\
+    日付       & 項目                                                           & 担当者 \\
     \hline \hline
-    2022/12/02 & 初版作成                                                 & 高橋   \\
+    2022/12/02 & 初版作成                                                       & 高橋   \\
     \hline
-    2023/01/10 & 全体を編集                                               & 高橋   \\
+    2023/01/10 & 全体を編集                                                     & 高橋   \\
     \hline
-    2023/01/20 & 余白および装飾の調整、番号を振った画像に差替、表現の変更 & 高橋   \\
+    2023/01/20 & 余白および装飾の調整、番号を振った画像に差替、表現の変更、編集 & 高橋   \\
     %\hline
   \end{tabularx}
 \end{table}
